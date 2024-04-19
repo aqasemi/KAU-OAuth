@@ -26,6 +26,7 @@ def create_app():
     app.config["SESSION_TYPE"] = "filesystem"
     app.config["SESSION_FILE_DIR"] = "/tmp/sessions"
 
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"pool_pre_ping": True}
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["POSTGRESQL_URI"]
 
     CORS(app)
